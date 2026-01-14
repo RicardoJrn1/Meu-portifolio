@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { SiGithub } from "react-icons/si";
-import { FaExternalLinkAlt } from "react-icons/fa";
+import { FaExternalLinkAlt, FaGoogleDrive } from "react-icons/fa";
 import { useLanguage } from "@/components/Linguagem";
 
 interface Project {
@@ -59,7 +59,7 @@ const PROJECTS: Project[] = [
 ];
 
 export default function Projetos() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   return (
     <div id="projetos" className="scroll-target mt-20">
       <div className="text-center mb-16">
@@ -144,6 +144,20 @@ export default function Projetos() {
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="mt-16 flex justify-center">
+        <a
+          href="https://drive.google.com/file/d/1qn5Xk1EZEfWZCkm_z2zVJTfX5UvzrpOG/view?usp=drivesdk"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group flex items-center gap-3 px-6 py-3 rounded-full bg-white/50 dark:bg-stone-900/50 border border-stone-200/50 dark:border-stone-700/50 backdrop-blur-sm hover:bg-white dark:hover:bg-stone-800 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+        >
+          <FaGoogleDrive className="text-xl text-stone-600 dark:text-stone-400 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors" />
+          <span className="text-sm font-semibold text-stone-600 dark:text-stone-300 group-hover:text-stone-900 dark:group-hover:text-stone-100 transition-colors">
+            {language === "pt" ? "Acessar Portfólio no Drive" : "Access Portfolio on Drive"}
+          </span>
+        </a>
       </div>
     </div>
   );
